@@ -1,16 +1,43 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application designed to streamline daycare management, tracking, and communication. Built with React and styled using Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🚀 Features
+* **Dashboard:** At-a-glance view of daily stats and updates.
+* **Child Management:** Track profiles, attendance, and daily schedules.
+* **Parent Communication:** Keep parents updated with real-time logs.
+* **Modern UI:** Clean, intuitive interface with responsive design.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Tech Stack
+* **Frontend:** React.js
+* **Styling:** Tailwind CSS
+* **Build Tool:** Vite
 
-## React Compiler
+## 💻 Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Follow these steps to run the project locally on your machine.
 
-## Expanding the ESLint configuration
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org) installed.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com
+   ```
+
+2. Navigate into the project directory:
+   ```bash
+   cd Daycare-App
+   ```
+
+3. Install the dependencies:
+   ```bash
+   npm install
+   ```
+
+4. Start the local development server:
+   ```bash
+   npm run dev
+   ```
