@@ -1,16 +1,22 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive web application designed to streamline daycare management, tracking, and communication. Built with React and styled using Tailwind CSS.
 
-Currently, two official plugins are available:
+## 🎯 Core Objectives
+The primary purpose of this application is to digitalize and automate daily daycare operations. This includes:
+* **Secure Authentication & Database Management:** Utilizing **Supabase** to securely store student records, parent contact details, and handle user authentication.
+* **Integrated Payment Solutions:** Implementing **PaySharp** to handle digital billing, allowing parents to securely pay for monthly tuition fees and upcoming school excursions directly through the web application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🚀 Features
+* **Dashboard:** At-a-glance view of daily stats, announcements, and updates.
+* **Child & Parent Management:** Centralized profile tracking, attendance logs, and digital daily schedules.
+* **Secure Portals:** Role-based access for daycare administrators and parents via Supabase Auth.
+* **Digital Billing:** Seamless checkout flows for school fees and event payments.
+* **Modern UI:** Clean, intuitive interface with responsive mobile design.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tech Stack
+* **Frontend:** React.js
+* **Styling:** Tailwind CSS
+* **Backend-as-a-Service:** Supabase (Database & Authentication)
+* **Payment Gateway:** PaySharp
+* **Build Tool:** Vite
