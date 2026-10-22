@@ -1,22 +1,32 @@
-# Daycare Management App
+# Daycare-App
 
-## Run it
-npm install
-cp .env.local.example .env.local
-# fill in NEXT_PUBLIC_SUPABASE_URL and NEXT_PUBLIC_SUPABASE_ANON_KEY
-npm run dev
+A staff-side daycare management platform built with Next.js 14 (App Router), Supabase, and Tailwind CSS. 
 
-## Pages
-/            - homepage (protected by middleware)
-/login       - staff login
-/signup      - staff sign up (email confirmation via PKCE, /auth/confirm)
-/enroll      - enroll a child into a classroom (calls enroll_child)
+## Overview
 
-## Database
-Migrations in supabase/migrations/ already ran against the live project.
-Kept here as historical record; no need to re-run.
+This application allows daycare staff to authenticate securely and enroll children into classrooms. Enrollment is enforced at the database level using a concurrency-safe Postgres function, preventing capacity overruns even under simultaneous requests. Data access is strictly gated by Row Level Security (RLS).
 
-## Supabase dashboard settings already configured
-- RLS enabled on children, classrooms, enrollments (staff full access
-  policies, TO authenticated)
-- Redirect URL added: http://localhost:3000/auth/confirm
+### Key Features
+- **PKCE Authentication:** Secure email/password signup and login via Supabase Auth.
+- **Route Protection:** Next.js middleware intercepts unauthenticated requests and redirects to login.
+- **Row Level Security:** Postgres RLS ensures users can only access data they are authorized to see.
+- **Concurrency-Safe Enrollment:** A Postgres RPC (`enroll_child`) uses `FOR UPDATE` row locking to serialize enrollments per classroom.
+- **Clean Architecture:** UI components are decoupled from Supabase using the Repository pattern.
+
+## Tech Stack
+- **Framework:** Next.js 14 (App Router)
+- **Language:** TypeScript
+- **Database & Auth:** Supabase (PostgreSQL, Auth, RLS)
+- **Styling:** Tailwind CSS
+
+## Getting Started
+
+### Prerequisites
+- Node.js 18.18 or later
+- A Supabase project
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/austinmahlathini-jpg/Daycare-App.git
+cd Daycare-App
+UYTRE
