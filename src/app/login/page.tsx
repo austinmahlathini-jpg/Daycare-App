@@ -4,7 +4,7 @@
 // default.
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
@@ -21,9 +21,11 @@ export default function LoginPage() {
   // client-side, without a full page reload.
   const router = useRouter();
 
-  // The BROWSER Supabase client specifically — this code runs in the
-  // user's browser, so it must use the client built for that context.
-  const supabase = createClient();
+  // The BROWSER Supabase client. 
+  // WHY useMemo: We wrap this in useMemo so React only creates ONE client 
+  // instance. If we didn't, every single keystroke in the email/password 
+  // fields would create a brand new client, causing the auth request to drop.
+  const supabase = useMemo(() => createClient(), []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();

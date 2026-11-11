@@ -1,17 +1,11 @@
-// src/app/signup/page.tsx
-//
 // ROLE IN THE SYSTEM: this is the first domino. A successful submission
 // here eventually leads to a real, authenticated session — which is what
 // lets a staff member's browser satisfy "TO authenticated" in the RLS
 // policies written earlier, and ultimately call enroll_child() as a
 // real, identified user rather than an anonymous request.
-
-// Same reasoning as login: this page needs useState (interactive form
-// fields) and calls a browser-side Supabase method — a Server Component
-// can do neither, so this file must opt out of the default.
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { createClient } from "@/lib/supabase/client";
 
 export default function SignUpPage() {
@@ -26,9 +20,10 @@ export default function SignUpPage() {
   // confirmation step (src/app/auth/confirm/route.ts) completes.
   const [submitted, setSubmitted] = useState(false);
 
-  // The BROWSER Supabase client — this code runs in the user's browser,
-  // talking directly to Supabase's Auth servers over HTTPS.
-  const supabase = createClient();
+  // The BROWSER Supabase client. 
+  // WHY useMemo: This prevents React from creating a new Supabase client
+  // on every single keystroke, which would break the auth request.
+  const supabase = useMemo(() => createClient(), []);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -44,7 +39,7 @@ export default function SignUpPage() {
       email,
       password,
       options: {
-        // Tells Supabase where the confirmation link should point —
+        // Tells Supabase where the confirmation link should point — 
         // must match the Route Handler built specifically to receive
         // it: src/app/auth/confirm/route.ts. Also must be added to
         // Supabase's Auth -> URL Configuration -> Redirect URLs allow-list.
@@ -104,3 +99,4 @@ export default function SignUpPage() {
     </main>
   );
 }
+
